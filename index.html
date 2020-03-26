@@ -18,7 +18,7 @@
 
   <style>
     html {
-      background: #018DED url(valley.jpg);
+      background: url(valley.jpg);
       background-size: cover;
       font-family: 'helvetica neue';
       text-align: center;
@@ -56,7 +56,31 @@
       transform: translateY(-3px); /* account for the height of the clock hands */
     }
 
-    .hand {
+    .second-hand {
+      width: 50%;
+      height: 6px;
+      background: rgb(197, 5, 78);
+      position: absolute;
+      top: 50%;
+      transform-origin: 100%; /* default is 50%, but we want the hands to rotate at clock's centerpoint */
+      transform: rotate(90deg); /* this causes the hands to start at 12 o' clock position */   
+      transition: all 0.05s;
+      transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1); /* this is used to smooth the beginning and end of an animation, it is a class of "easing functions" */
+    }
+
+    .min-hand {
+      width: 50%;
+      height: 6px;
+      background: black;
+      position: absolute;
+      top: 50%;
+      transform-origin: 100%; /* default is 50%, but we want the hands to rotate at clock's centerpoint */
+      transform: rotate(90deg); /* this causes the hands to start at 12 o' clock position */   
+      transition: all 0.05s;
+      transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1); /* this is used to smooth the beginning and end of an animation, it is a class of "easing functions" */
+    }
+
+    .hour-hand {
       width: 50%;
       height: 6px;
       background: black;
@@ -89,7 +113,7 @@
 
     }
 
-    setInterval(setDate, 1000);
+    setInterval(setDate, 1000); // setInterval calls a function at set intervals; in this case, on every second it will call my setDate function
 
   </script>
 </body>
